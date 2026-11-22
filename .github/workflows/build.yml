@@ -1,0 +1,33 @@
+name: Build starters
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Maven
+            directory: templates/maven-starter
+            command: mvn --batch-mode --no-transfer-progress package
+          - name: Gradle
+            directory: templates/gradle-starter
+            command: gradle --no-daemon build
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: ${{ matrix.name == 'Maven' && 'maven' || 'gradle' }}
+      - uses: gradle/actions/setup-gradle@v4
+        if: matrix.name == 'Gradle'
+      - name: Build
+        working-directory: ${{ matrix.directory }}
+        run: ${{ matrix.command }}

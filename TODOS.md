@@ -1,36 +1,38 @@
 # Backlog
 
-Track improvements to the JavaFX learning repository. Keep completed work out of the active list; add evidence and platform details to `docs/findings.md` when behavior is verified.
+Prioritized work for the JavaFX learning repository. Check off only work implemented and verified; record verification details in `docs/findings.md`.
 
-## Starter quality
+## Next: reproducible baseline
 
-- [ ] Add Maven and Gradle wrappers, pinning tested wrapper versions.
-- [ ] Align dependency/plugin versions and document the supported JDK/JavaFX matrix.
-- [ ] Add focused unit tests for logic extracted from the FXML controller.
-- [ ] Add an automated compile/package check for both starters.
-- [ ] Evaluate a minimal logging approach and establish exception-reporting conventions.
-- [ ] Document accessibility basics (keyboard navigation, labels, focus).
-- [ ] Add icons and a consistent window title/app identity.
+- [ ] Add Maven and Gradle wrappers and pin tested versions.
+- [x] Add CI to build both starters on pushes and pull requests (GitHub Actions; pending remote run).
+- [ ] Add lightweight tests for starter logic; keep GUI tests separate until headless strategy is validated.
+- [ ] Document tested JDK/JavaFX/OS combinations and refresh stale environment notes.
 
-## Experiments
+## Starter improvements
 
-- [ ] Layouts and controls: `BorderPane`, `VBox`, `HBox`, `GridPane`, `StackPane`; resize and sizing behavior.
-- [ ] FXML: nested views with `fx:include`, controller communication, and equivalent Java-built UI.
-- [ ] Binding/MVVM: properties, computed and bidirectional bindings, validation.
-- [ ] CSS: runtime light/dark theme, pseudo-classes, looked-up colors.
-- [ ] Concurrency: `Task`, `Service`, cancellation, progress, and the consequences of blocking the FX thread.
-- [ ] Data views: editable `TableView`, cell factories, filtering/sorting, and view comparisons.
-- [ ] Charts, media, and `WebView`: verify platform support and document limitations.
-- [ ] Testing: evaluate TestFX, headless options, and a repeatable GUI smoke test.
+- [ ] Align dependency and plugin versions across templates where practical.
+- [ ] Add accessible names, keyboard/focus guidance, and an accessibility checklist.
+- [ ] Define a consistent app title and icon convention.
+- [ ] Choose basic logging and exception-reporting conventions.
 
-## Distribution
+## Learning experiments
 
-- [ ] Compare classpath and module-path builds, including FXML reflection trade-offs.
-- [ ] Build a runtime image with `jlink` and installer with `jpackage`.
-- [ ] Record native dependencies and test distribution on target operating systems.
+- [ ] Layouts and controls: sizing, resizing, and common layout panes.
+- [ ] FXML: nested views, controller communication, and imperative equivalent.
+- [ ] Binding/MVVM: properties, computed/bidirectional bindings, validation.
+- [ ] CSS: runtime themes, pseudo-classes, looked-up colors.
+- [ ] Concurrency: `Task`, `Service`, cancellation, progress, FX-thread blocking.
+- [ ] Data views: editable tables, custom cells, filtering/sorting.
+- [ ] Charts, media, and `WebView`; document platform limitations.
 
-## Repository maintenance
+## Testing and distribution
 
-- [ ] Decide whether experiments remain independent or become a multi-project build.
-- [ ] Add screenshots where they help explain an experiment.
-- [ ] Keep findings dated, concise, and reproducible.
+- [ ] Evaluate TestFX and headless/CI options; add a GUI smoke test if reliable.
+- [ ] Compare classpath/module-path approaches, including FXML reflection.
+- [ ] Build a `jlink` runtime image and `jpackage` installer; document native dependencies.
+
+## Repository decisions
+
+- [ ] Decide whether experiments are independent or part of a multi-project build.
+- [ ] Add screenshots when they materially aid an experiment.
