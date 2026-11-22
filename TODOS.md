@@ -1,91 +1,36 @@
-# TODOS
+# Backlog
 
-Backlog for the JavaFX exploration project. Check items off as they are
-completed; keep notes in [`docs/findings.md`](docs/findings.md).
+Track improvements to the JavaFX learning repository. Keep completed work out of the active list; add evidence and platform details to `docs/findings.md` when behavior is verified.
 
-## Done
+## Starter quality
 
-- [x] Verify JDK, JavaFX SDK, Maven, Gradle, and GUI runtime libraries
-- [x] Validate Maven, Gradle, and raw-SDK launch paths with a real window
-- [x] Create a reusable Maven starter (FXML + CSS + binding + Task)
-- [x] Create a reusable Gradle starter with the same application
-- [x] Document purpose, layout, conventions, and toolchain
-- [x] Add project `.gitignore`
+- [ ] Add Maven and Gradle wrappers, pinning tested wrapper versions.
+- [ ] Align dependency/plugin versions and document the supported JDK/JavaFX matrix.
+- [ ] Add focused unit tests for logic extracted from the FXML controller.
+- [ ] Add an automated compile/package check for both starters.
+- [ ] Evaluate a minimal logging approach and establish exception-reporting conventions.
+- [ ] Document accessibility basics (keyboard navigation, labels, focus).
+- [ ] Add icons and a consistent window title/app identity.
 
-## Starter hardening
+## Experiments
 
-- [ ] Add Maven Wrapper (`mvnw`) so the starter does not depend on a global Maven
-- [ ] Add Gradle Wrapper (`gradlew`) so the starter does not depend on a global Gradle
-- [ ] Add a unit test for the controller/model logic
-- [ ] Add an application icon and window title convention
-- [ ] Decide on module path (`module-info.java`) vs. classpath for the starter
-- [ ] Add a minimal logging setup (e.g., `java.util.logging`)
+- [ ] Layouts and controls: `BorderPane`, `VBox`, `HBox`, `GridPane`, `StackPane`; resize and sizing behavior.
+- [ ] FXML: nested views with `fx:include`, controller communication, and equivalent Java-built UI.
+- [ ] Binding/MVVM: properties, computed and bidirectional bindings, validation.
+- [ ] CSS: runtime light/dark theme, pseudo-classes, looked-up colors.
+- [ ] Concurrency: `Task`, `Service`, cancellation, progress, and the consequences of blocking the FX thread.
+- [ ] Data views: editable `TableView`, cell factories, filtering/sorting, and view comparisons.
+- [ ] Charts, media, and `WebView`: verify platform support and document limitations.
+- [ ] Testing: evaluate TestFX, headless options, and a repeatable GUI smoke test.
 
-## Explorations
+## Distribution
 
-### 01 — Layouts and controls
+- [ ] Compare classpath and module-path builds, including FXML reflection trade-offs.
+- [ ] Build a runtime image with `jlink` and installer with `jpackage`.
+- [ ] Record native dependencies and test distribution on target operating systems.
 
-- [ ] Build a gallery of core layouts (`BorderPane`, `VBox`, `HBox`, `GridPane`, `StackPane`)
-- [ ] Compare `AnchorPane` constraints with layout panes
-- [ ] Demonstrate resizing behavior and min/pref/max sizes
+## Repository maintenance
 
-### 02 — FXML and controllers
-
-- [ ] Split a view into nested FXML files with `fx:include`
-- [ ] Pass data between parent and child controllers
-- [ ] Compare FXML with equivalent imperative Java
-
-### 03 — Binding and MVVM
-
-- [ ] Introduce a view model with JavaFX properties
-- [ ] Show one-way, bidirectional, and computed bindings
-- [ ] Add validation with binding and visual error states
-
-### 04 — CSS and theming
-
-- [ ] Build a light and dark theme switchable at runtime
-- [ ] Style a custom control with pseudo-classes
-- [ ] Compare inline styles, stylesheets, and CSS variables (`-fx-` looked-up colors)
-
-### 05 — Background work and responsiveness
-
-- [ ] Demonstrate `Task`, `Service`, and `Platform.runLater`
-- [ ] Add cancellation and progress reporting
-- [ ] Show what happens when blocking work runs on the FX thread
-
-### 06 — Data views
-
-- [ ] Explore `TableView` with editable cells and custom cell factories
-- [ ] Add filtering and sorting through `FilteredList` / `SortedList`
-- [ ] Compare `ListView`, `TreeView`, and `TableView`
-
-### 07 — Charts and media
-
-- [ ] Build a small chart dashboard
-- [ ] Try audio/video playback with `javafx.media`
-- [ ] Evaluate `WebView` for embedded content
-
-### 08 — Testing
-
-- [ ] Evaluate TestFX for UI tests
-- [ ] Document headless/CI limitations and options (Monocle)
-- [ ] Add a repeatable smoke test for the starter
-
-## Packaging and distribution
-
-- [ ] Build a runtime image with `jlink`
-- [ ] Package a native installer with `jpackage`
-- [ ] Document required native dependencies for the target distro
-- [ ] Compare classpath and module-path packaging
-
-## Documentation
-
-- [ ] Add a screenshot of the starter to the README
-- [ ] Record JavaFX version compatibility notes (JDK 21 vs. newer JDKs)
-- [ ] Summarize lessons learned at the end of each exploration
-
-## Open questions
-
-- Should explorations share one multi-module build, or stay independent?
-- Is a modular (`module-info.java`) baseline worth the FXML/reflection trade-off?
-- Which packaging format matters most: `.deb`, `.rpm`, AppImage, or a runtime image?
+- [ ] Decide whether experiments remain independent or become a multi-project build.
+- [ ] Add screenshots where they help explain an experiment.
+- [ ] Keep findings dated, concise, and reproducible.

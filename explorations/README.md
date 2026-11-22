@@ -32,7 +32,7 @@ Copy a template and rename it:
 cp -r templates/maven-starter explorations/01-my-topic
 ```
 
-Then update the `artifactId`, package name, window title, and README.
+Then update the Maven `artifactId` (or Gradle project name), package name, window title, and README. Remove the demo controls and background task if they are unrelated to the experiment; keep each exploration focused.
 
 Keep experiment-specific code out of `templates/`; the starters should stay a
 clean baseline.

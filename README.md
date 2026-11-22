@@ -1,115 +1,36 @@
-# Java JavaFX GUI Exploration
+# JavaFX GUI Exploration
 
-A hands-on sandbox for exploring **desktop GUI development in Java with JavaFX**.
-The goal is learning and comparison through small, runnable experiments — not a
-production application.
-
-## Status
-
-Toolchain verified on AlmaLinux 10.2 with Wayland/XWayland:
-
-| Tool | Version |
-|---|---|
-| JDK (Temurin) | 21.0.13.1 LTS |
-| JavaFX SDK | 21.0.13 |
-| Maven | 3.9.16 |
-| Gradle | 9.3.1 |
-
-The starter compiles and opens a real window through Maven, Gradle, and the raw
-JavaFX SDK.
-
-## Repository layout
-
-```
-.
-├── README.md
-├── TODOS.md
-├── docs/
-│   └── findings.md              # what we learned, decisions, gotchas
-├── explorations/
-│   └── README.md                # convention for individual experiments
-└── templates/
-    ├── maven-starter/           # canonical Maven baseline
-    │   ├── pom.xml
-    │   ├── README.md
-    │   └── src/main/...
-    └── gradle-starter/          # same app, Gradle build
-        ├── build.gradle
-        ├── settings.gradle
-        ├── README.md
-        └── src/main/...
-```
+A hands-on learning repository for building desktop applications with Java and JavaFX. It is a collection of small, runnable experiments—not a production application.
 
 ## Quick start
 
-### Maven starter
+Choose either starter (JDK 21 required; JavaFX is resolved by the build):
 
-```bash
-cd templates/maven-starter
-mvn javafx:run
+```sh
+cd templates/maven-starter && mvn javafx:run
+# or, from the repository root:
+cd templates/gradle-starter && gradle run
 ```
 
-### Gradle starter
+Both starters provide the same small application: FXML and CSS, a bound greeting, and a background `Task` with progress and status feedback. GUI execution requires a working desktop session; headless environments may compile but cannot display a window.
 
-```bash
-cd templates/gradle-starter
-gradle run
-```
+## Repository map
 
-Both starters launch the same app: a small FXML + CSS window with live binding
-and a background-task demo.
+- `templates/maven-starter/` — Maven baseline.
+- `templates/gradle-starter/` — Gradle baseline.
+- `explorations/` — self-contained topic experiments; see its README for conventions.
+- `docs/` — [documentation index](docs/README.md), [build/run guide](docs/build-and-run.md), [experiment conventions](docs/conventions.md), [troubleshooting](docs/troubleshooting.md), and [verified findings](docs/findings.md).
+- `TODOS.md` — improvement and exploration backlog.
 
-## What the starter demonstrates
+## Working with the starters
 
-- **FXML layout + controller** (`main.fxml`, `MainController`)
-- **CSS theming** (`styles.css`)
-- **Property binding** (name field → greeting, busy state → button disable)
-- **Background work** (`Task`, progress bar, status message, activity log)
-- **Packaging-friendly entry point** (`Launcher`, no `Application` subclass as
-  the main class)
-- **Clean project structure** ready to copy for a new exploration
+Run `mvn package` or `gradle build` in the corresponding starter directory to compile/package. These builds do not create self-contained installers. To begin an experiment, copy one starter into `explorations/NN-short-topic/`, then update its project name, package, title, and documentation. Keep the templates generic and record useful findings in `docs/findings.md`.
 
-## Conventions
+The baseline targets Java 21 and JavaFX 21, uses classpath mode (no `module-info.java`), and uses a launcher class for JavaFX startup. See each template's README for details. Tool versions recorded in findings describe the environment where the initial baseline was verified, not a guarantee for every platform.
 
-- One topic per folder: `explorations/NN-short-topic/`
-- Every exploration is self-contained and runnable
-- Every exploration has a `README.md` with:
-  **Goal → What to try → Result → Takeaway**
-- Prefer the smallest example that demonstrates the idea
-- Record non-obvious findings in [`docs/findings.md`](docs/findings.md)
-- Keep the starter free of experiment-specific code
+## Project principles
 
-## Packaging notes
-
-The starter exposes `dev.exploration.starter.Launcher` so tools such as
-`jpackage` can launch the app without the JavaFX launcher warning. A typical
-sequence is:
-
-```bash
-mvn -q -DskipTests package
-jpackage --type rpm \
-  --name JavaFXStarter \
-  --input target \
-  --main-jar javafx-starter-0.1.0-SNAPSHOT.jar \
-  --main-class dev.exploration.starter.Launcher
-```
-
-Native packaging is still on the backlog; see [`TODOS.md`](TODOS.md).
-
-## Toolchain
-
-```text
-JAVA_HOME   = ~/.local/opt/jdk-21
-JAVAFX_HOME = ~/.local/opt/javafx-sdk-21
-```
-
-Maven and Gradle download JavaFX from Maven Central. `JAVAFX_HOME` is only
-needed when compiling or running directly with `javac` / `java`:
-
-```bash
-javac --module-path "$JAVAFX_HOME/lib" --add-modules javafx.controls,javafx.fxml ...
-```
-
-## Next steps
-
-See [`TODOS.md`](TODOS.md) for the exploration backlog.
+- Keep each experiment small, reproducible, and runnable with one command.
+- State the question being explored and document what was learned.
+- Avoid machine-specific paths and unpublished dependencies.
+- Prefer clarity over production-framework complexity.
