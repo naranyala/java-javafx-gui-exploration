@@ -35,11 +35,11 @@ See each starter README for build details and smoke-test commands: [Maven](templ
 
 ## Current experiments
 
-Each folder is a standalone Maven project copied from the starter. These are early learning baselines/prototypes; they have **not been build-verified in the current environment** because Maven is unavailable here. In particular, their stated follow-up behavior should not be mistaken for a completed implementation or a production-ready library.
+Each folder is a standalone Maven project based on the starter. These are learning baselines/prototypes, not production-ready libraries. Maven is unavailable in this environment, so the projects and tests have not been build-verified locally. CI now builds the projects and runs the pure-Java tests for experiments 06 and 07.
 
 | Experiment | Focus and included material |
 |---|---|
-| [`05-async-task-lifecycle`](explorations/05-async-task-lifecycle/) | Starter `Task` baseline; notes frame cancellation, failure, progress, stale-result suppression, and JavaFX-thread delivery questions. |
+| [`05-async-task-lifecycle`](explorations/05-async-task-lifecycle/) | JavaFX `Task` demo with progress, cancel action, and deliberate failure; overlapping requests/stale-result suppression remain unimplemented. |
 | [`06-controller-lifecycle`](explorations/06-controller-lifecycle/) | Starter baseline plus `SubscriptionScope`, a small `AutoCloseable` cleanup-ownership prototype. |
 | [`07-typed-preferences`](explorations/07-typed-preferences/) | Starter baseline plus `PreferenceKey` and `TypedPreferences`, a typed facade over JDK `Preferences` with defaults and validation. |
 

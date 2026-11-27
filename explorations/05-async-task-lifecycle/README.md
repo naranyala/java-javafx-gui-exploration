@@ -6,11 +6,11 @@ Explore cancellation, failure, progress, and stale-result suppression with JavaF
 
 ## What to try
 
-Run `mvn javafx:run`. Start the demo task, observe progress/status, then start another operation only after the previous one finishes. The starter's `Task` demo is the baseline; extend its worker with a deliberate failure and a cancellation control to compare the terminal handlers.
+Run `mvn javafx:run`. Start the task and observe progress/status; press Cancel during execution to test cooperative cancellation. Select “Demonstrate failure” before starting to trigger a predictable worker exception halfway through. The run button is disabled while work is active, so this UI does not yet exercise overlapping/latest-wins requests.
 
 ## Result
 
-`Task` delivers state changes and terminal handlers on the JavaFX Application Thread. Cancellation is cooperative: worker code must check `isCancelled()` and interruptible blocking operations may throw `InterruptedException`. A generation token is needed when a newer request should make older results irrelevant; cancelling alone does not guarantee that an uncooperative worker stops immediately.
+The UI exposes success, cancellation, and deliberate failure terminal paths; `Task` delivers terminal handlers on the JavaFX Application Thread. Cancellation is cooperative: worker code checks `isCancelled()`, while `Thread.sleep` is interruptible and may throw `InterruptedException`. This demo serializes requests by disabling Run while busy, so stale-result suppression is not implemented or tested. A generation token is a possible policy when newer requests supersede older work.
 
 ## Takeaway
 

@@ -1,4 +1,4 @@
-name: Build starters
+name: Build starters and experiments
 
 on:
   push:
@@ -18,6 +18,15 @@ jobs:
           - name: Gradle
             directory: templates/gradle-starter
             command: gradle --no-daemon build
+          - name: Async experiment
+            directory: explorations/05-async-task-lifecycle
+            command: mvn --batch-mode --no-transfer-progress package
+          - name: Lifecycle experiment
+            directory: explorations/06-controller-lifecycle
+            command: mvn --batch-mode --no-transfer-progress verify
+          - name: Preferences experiment
+            directory: explorations/07-typed-preferences
+            command: mvn --batch-mode --no-transfer-progress verify
     name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4

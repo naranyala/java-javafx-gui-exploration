@@ -6,11 +6,11 @@ Compare typed application settings with the JDK's `Preferences` and `Properties`
 
 ## What to try
 
-Run `mvn javafx:run` for the starter, then replace its demo controller with a small settings screen. Start with a typed key/default model, validate values before writing, and test restart persistence. Compare `Preferences` (platform/user scoped) with a `Properties` file (explicit file format/location); do not bind UI controls directly to storage.
+Run `mvn javafx:run` for the starter and `mvn verify` for the pure-Java tests. Start with a typed key/default model, validate values before writing, and test restart persistence. Compare `Preferences` (platform/user scoped) with a `Properties` file (explicit file format/location); do not bind UI controls directly to storage.
 
 ## Result
 
-A typed wrapper can prevent key/type mismatches and centralize defaults, but migrations, atomic writes, storage failure handling, and synchronization are separate concerns. JavaFX properties are useful as an optional UI adapter, not a requirement for a storage core.
+A typed wrapper can centralize defaults and validation, but it still stores strings by key name, so callers can reuse a name with incompatible key types. Malformed codec data falls back to the default; invalid writes are rejected; storage exceptions propagate. `flush()` is explicit because it may block. Migrations, atomic file writes, and concurrent access policy remain unresolved. JavaFX properties are optional and not part of this storage facade.
 
 ## Takeaway
 

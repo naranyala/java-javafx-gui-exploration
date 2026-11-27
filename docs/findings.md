@@ -9,6 +9,13 @@ and actionable.
 - Both FXML files parse as XML and `git diff --check` passes.
 - Manual focus visibility and screen-reader behavior are platform-dependent and remain unverified.
 
+## 2026-11-27 — Prototype validation work started
+
+- Added success/cancel/failure controls to the async `Task` experiment. Latest-wins behavior remains explicitly unimplemented.
+- Added unit tests for `SubscriptionScope` ordering, idempotence, late registration, exception aggregation, and reentrant cleanup; cleanup now runs outside the scope lock.
+- Added isolated-node tests for typed preference defaults, codec round-trips, malformed/invalid values, removal, and explicit flush. Decode failures fall back, while storage and validator failures propagate.
+- CI now builds experiments 05–07 and runs tests for 06–07. This environment has no Java, `javac`, Maven, or Gradle, so no local Java build/test result is available; confirm remote CI before treating these as verified.
+
 ## 2026-11-22 — Toolchain baseline
 
 **Environment**

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
@@ -24,8 +25,9 @@
     <center>
         <VBox spacing="16" styleClass="content">
             <HBox alignment="CENTER_LEFT" spacing="12">
-                <Label text="Name"/>
-                <TextField fx:id="nameField" promptText="Type a name..." HBox.hgrow="ALWAYS"/>
+                <Label text="Name" labelFor="$nameField"/>
+                <TextField fx:id="nameField" promptText="Type a name..."
+                           accessibleText="Name" HBox.hgrow="ALWAYS"/>
             </HBox>
 
             <Label fx:id="greetingLabel" styleClass="greeting"/>
@@ -33,17 +35,21 @@
             <Separator/>
 
             <HBox alignment="CENTER_LEFT" spacing="12">
-                <Button fx:id="runTaskButton"
-                        onAction="#onRunTask"
-                        styleClass="primary"
-                        text="Run background task"/>
-                <ProgressBar fx:id="progressBar" prefWidth="240" progress="0"/>
+                <Button fx:id="runTaskButton" onAction="#onRunTask"
+                        styleClass="primary" text="Run task"/>
+                <Button fx:id="cancelTaskButton" onAction="#onCancelTask"
+                        text="Cancel" disable="true"/>
+                <ProgressBar fx:id="progressBar" accessibleText="Task progress"
+                             prefWidth="240" progress="0"/>
             </HBox>
 
-            <Label fx:id="statusLabel" styleClass="status" text="Ready."/>
+            <CheckBox fx:id="failTaskCheckBox" accessibleText="Fail task at midpoint"
+                      text="Demonstrate failure"/>
+            <Label fx:id="statusLabel" accessibleText="Task status"
+                   styleClass="status" text="Ready."/>
 
             <Label text="ACTIVITY" styleClass="section-label"/>
-            <ListView fx:id="logList" VBox.vgrow="ALWAYS"/>
+            <ListView fx:id="logList" accessibleText="Activity log" VBox.vgrow="ALWAYS"/>
         </VBox>
     </center>
 
