@@ -24,6 +24,10 @@ gradle build
 STARTER_AUTOCLOSE=1 gradle -q run
 ```
 
+## Accessibility and keyboard use
+
+The name field has an associated visible label, and the progress, status, and activity controls have accessible names. Use Tab/Shift+Tab to move through the controls and Enter/Space to activate the task button. Check actual focus visibility and screen-reader announcements on your target platform; FXML names alone do not guarantee accessible behavior.
+
 ## Structure
 
 ```text

@@ -3,6 +3,12 @@
 Running notes from the JavaFX exploration. Add dated entries; keep them short
 and actionable.
 
+## 2026-11-27 — Starter accessibility baseline
+
+- Added accessible names and a visible label association to both starter FXML files; documented keyboard and assistive-technology checks in starter READMEs and experiment conventions.
+- Both FXML files parse as XML and `git diff --check` passes.
+- Manual focus visibility and screen-reader behavior are platform-dependent and remain unverified.
+
 ## 2026-11-22 — Toolchain baseline
 
 **Environment**

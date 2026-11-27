@@ -1,0 +1,82 @@
+/* Starter theme: neutral surface, one accent colour, readable spacing. */
+
+.root-pane {
+    -fx-background-color: #f5f7fb;
+    -fx-font-family: "Inter", "Segoe UI", "DejaVu Sans", sans-serif;
+}
+
+.header {
+    -fx-padding: 20 24 16 24;
+    -fx-background-color: linear-gradient(to right, #26365f, #4a6da3);
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d9e3f5;
+}
+
+.content {
+    -fx-padding: 20 24 12 24;
+}
+
+.greeting {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1f2937;
+}
+
+.status {
+    -fx-text-fill: #4b5563;
+}
+
+.section-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6b7280;
+}
+
+.button.primary {
+    -fx-background-color: #26365f;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.button.primary:hover {
+    -fx-background-color: #38507f;
+}
+
+.button.primary:disabled {
+    -fx-opacity: 0.55;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: #4a6da3;
+}
+
+.progress-bar > .track {
+    -fx-background-color: #dde4f0;
+}
+
+.list-view {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #dde4f0;
+    -fx-border-width: 1;
+}
+
+.footer {
+    -fx-padding: 10 24 10 24;
+    -fx-background-color: #e9edf5;
+}
+
+.footer-text {
+    -fx-font-size: 11px;
+    -fx-text-fill: #6b7280;
+}

@@ -24,6 +24,14 @@ Every exploration must:
 3. Avoid depending on machine-specific paths or unpublished artifacts.
 4. Prefer the smallest example that demonstrates the idea.
 
+## Current experiments
+
+- `05-async-task-lifecycle/` — JavaFX `Task` baseline and lifecycle questions.
+- `06-controller-lifecycle/` — includes a small `SubscriptionScope` prototype for deterministic cleanup.
+- `07-typed-preferences/` — includes a typed facade over JDK `Preferences` with defaults and validation.
+
+These are initial prototypes, not library recommendations. Record test results and known limitations in each experiment before considering extraction.
+
 ## Starting a new exploration
 
 Copy a template and rename it:

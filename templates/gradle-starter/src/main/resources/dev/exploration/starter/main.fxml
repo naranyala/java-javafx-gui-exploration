@@ -24,8 +24,9 @@
     <center>
         <VBox spacing="16" styleClass="content">
             <HBox alignment="CENTER_LEFT" spacing="12">
-                <Label text="Name"/>
-                <TextField fx:id="nameField" promptText="Type a name..." HBox.hgrow="ALWAYS"/>
+                <Label text="Name" labelFor="$nameField"/>
+                <TextField fx:id="nameField" promptText="Type a name..."
+                           accessibleText="Name" HBox.hgrow="ALWAYS"/>
             </HBox>
 
             <Label fx:id="greetingLabel" styleClass="greeting"/>
@@ -37,13 +38,14 @@
                         onAction="#onRunTask"
                         styleClass="primary"
                         text="Run background task"/>
-                <ProgressBar fx:id="progressBar" prefWidth="240" progress="0"/>
+                <ProgressBar fx:id="progressBar" accessibleText="Background task progress"
+                             prefWidth="240" progress="0"/>
             </HBox>
 
-            <Label fx:id="statusLabel" styleClass="status" text="Ready."/>
+            <Label fx:id="statusLabel" accessibleText="Task status" styleClass="status" text="Ready."/>
 
             <Label text="ACTIVITY" styleClass="section-label"/>
-            <ListView fx:id="logList" VBox.vgrow="ALWAYS"/>
+            <ListView fx:id="logList" accessibleText="Activity log" VBox.vgrow="ALWAYS"/>
         </VBox>
     </center>
 
